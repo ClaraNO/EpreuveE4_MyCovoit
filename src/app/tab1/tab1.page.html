@@ -1,9 +1,80 @@
-<ion-header [translucent]="true">
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>MyConvoit</ion-title>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
+  <ion-card class="bg-white" no-margin>
+    <ion-card-content>
+      <h1 margin-bottom>
+        <ion-text color="primary"><strong>Gestion Des Propositions</strong></ion-text>
+      </h1>
+      <p margin-bottom>
+      </p>
+    </ion-card-content>
 
-  <!--Contenu de la page-->
-  <h3>Page Rechercher</h3>
 
+    <ion-list margin-bottom>
+      <ion-list-header color="light">
+        <h4><ion-label class="fw700">Itinéraire</ion-label></h4>
+      </ion-list-header>
+      <br>
+
+      <ion-item>
+        <div>
+          <ion-text>
+            <h4><ion-label color="dark" position="floating">D'où partez-vous ? :</ion-label></h4>
+              <ion-textarea placeholder="Exemple:8 rue Voltaire ou Hôtel du Moulin"></ion-textarea>
+          </ion-text>
+        </div>
+
+        
+        <div>
+          <ion-text>
+            <h4><ion-label color="dark" position="floating">Où allez-vous ? :</ion-label></h4>
+              <ion-textarea placeholder="Exemple:8 rue Voltaire ou Hôtel du Moulin"></ion-textarea>
+          </ion-text>   
+        </div>
+        
+        <div>
+          <ion-text>
+            <h4><ion-label color="dark" position="floating">Etapes :</ion-label></h4>
+              <ion-textarea placeholder="Exemple:8 rue Voltaire ou Hôtel du Moulin"></ion-textarea>
+          </ion-text>
+        </div>
+
+
+      </ion-item>
+    </ion-list>
+
+    
+
+    <ion-list margin-bottom>
+      <ion-list-header color="light">
+        <ion-label class="fw700">Date et horaire
+          <ion-item>
+            <ion-label>Aller-retour</ion-label>
+            <ion-checkbox color="dark" checked="true"></ion-checkbox>
+          </ion-item>
+        </ion-label> 
+      </ion-list-header>
+      <br>
+
+      <ion-item>
+        <h4><ion-label color="dark" position="stacked">Date de l'aller :</ion-label></h4>
+
+        <p><input type="date" value="" name="date2" id="champ_date2" size="12" maxlength="10"></p>
+        
+                       
+        <ion-label color="dark" position="stacked">Date du retour :</ion-label>
+          <p><input type="date" value="" name="date2" id="champ_date2" size="12" maxlength="10"></p>
+          
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <Ion-Button>Envoyer</Ion-Button>
 </ion-content>
