@@ -47,9 +47,11 @@ user = {} as User;
   formValidation(){
     if (!this.user.email){
       this.showToast('Saisir une adresse mail.');
+      return false;
     }
     if (!this.user.password){
       this.showToast('Saisir un mot de passe.');
+      return false;
     }
 
     return true;

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-accueil',
@@ -7,6 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AccueilPage {
 
-  constructor() {}
+  trajets: Observable<any[]>;
+
+  constructor(
+      public firestore: AngularFirestore
+  ) {
+    this.trajets = this.firestore.collection('Trajets').valueChanges();
+  }
 
 }
