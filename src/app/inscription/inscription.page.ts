@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {User } from '../../../../../myCovoit_old/src/app/models/user.mode';
+import {User } from 'src/app/models/user.mode';
 import {register} from 'ts-node';
 import {LoadingController, NavController, ToastController} from '@ionic/angular';
 import {AngularFireAuth, AngularFireAuthModule} from '@angular/fire/auth';
