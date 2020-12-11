@@ -17,15 +17,30 @@ import {environment} from 'src/environments/environment';
 import firebase from 'firebase';
 import initializeApp = firebase.initializeApp;
 
+export const firebaseConfig = {
+    apiKey: 'AIzaSyDtutbCJ9i9y6IM8EUtOTPtcqMv7dkvIMU',
+    authDomain: 'mycovoit-3ebce.firebaseapp.com',
+    projectId: 'mycovoit-3ebce',
+    storageBucket: 'mycovoit-3ebce.appspot.com',
+    messagingSenderId: '845622056545',
+    appId: '1:845622056545:web:07903adb14a01596a87c20'
+
+};
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule,
+  imports: [
+    BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.FIREBASE_CONFIG),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     AngularFireStorageModule
   ],
   providers: [
