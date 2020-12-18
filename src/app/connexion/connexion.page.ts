@@ -26,16 +26,17 @@ export class ConnexionPage implements OnInit {
       });
       await (await loader).present();
 
-      // try {
-      //   await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(data => {
-      //     console.log(data);
-      //
-      //     this.navCtrl.navigateRoot('/tabs/accueil');
-      //   });
-      // }
-      // catch (e) {
-      //   this.showToast(e);
-      // }
+      try {
+        await this.afAuth.signInWithEmailAndPassword(user.email, user.password).then(data => {
+          console.log(data);
+
+          this.navCtrl.navigateRoot('/tabs/tab1');
+        });
+      }
+      catch (e) {
+        this.showToast(e);
+      }
+      await (await loader).dismiss();
     }
   }
 
