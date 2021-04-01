@@ -28,35 +28,34 @@
         <div>
           <ion-text>
             <h4><ion-label color="dark" position="floating">D'où partez-vous ? :</ion-label></h4>
-              <ion-textarea placeholder="Exemple:8 rue Voltaire ou Hôtel du Moulin"></ion-textarea>
+            <ion-input [(ngModel)]="firebaseText" type="text" placeholder="Exemple: 8 rue Voltaire"></ion-input>
           </ion-text>
         </div>
+    
 
-        
         <div>
           <ion-text>
             <h4><ion-label color="dark" position="floating">Où allez-vous ? :</ion-label></h4>
-              <ion-textarea placeholder="Exemple:8 rue Voltaire ou Hôtel du Moulin"></ion-textarea>
+              <ion-input [(ngModel)]="firebaseText1" type="text" placeholder="Exemple: 8 rue Voltaire"></ion-input>
           </ion-text>   
         </div>
         
         <div>
           <ion-text>
             <h4><ion-label color="dark" position="floating">Etapes :</ion-label></h4>
-              <ion-textarea placeholder="Exemple:8 rue Voltaire ou Hôtel du Moulin"></ion-textarea>
+            <ion-input [(ngModel)]="firebaseText2" type="text" placeholder="Exemple: 8 rue Voltaire"></ion-input>
           </ion-text>
         </div>
       </ion-item>
     </ion-list>
 
-    
 
     <ion-list margin-bottom>
       <ion-list-header color="light">
         <u><h4><ion-label class="fw700">Date et horaire</ion-label></h4></u> 
           <ion-item>
             <ion-label color="dark">Aller-retour</ion-label>
-            <ion-checkbox color="dark" checked="true"></ion-checkbox>
+            <ion-checkbox [(ngModel)]="firebaseBouton" color="dark" checked="true"></ion-checkbox>
           </ion-item>
         
       </ion-list-header>
@@ -67,13 +66,13 @@
           <ion-col size="7" className="ion-align-self-center">
             <div>
               <ion-label color="dark" position="stacked">Date de l'aller :</ion-label>
-              <input type="date" value="" name="date2" id="champ_date2" size="12" maxlength="10">
+              <input [(ngModel)]="firebaseDateAller" type="date" value="" name="date2" id="champ_date2" size="12" maxlength="10">
             </div>
           </ion-col>
           <ion-col size="5" className="ion-align-self-center">
             <div>
               <ion-label color="dark" position="stacked"> Heure de départ </ion-label>
-              <ion-datetime class="encadrer-un-contenu" display-format = "HH:mm" display-timezone="utc" picker-format = "HH:mm" value = "1990-02-19T07: 43Z"> </ion-datetime>
+              <ion-datetime [(ngModel)]="firebaseHeureAller" class="encadrer-un-contenu" display-format = "HH: mm" display-timezone="utc" picker-format = "HH: mm" value = "13:47"> </ion-datetime>
             </div>
 
             </ion-col>
@@ -85,21 +84,20 @@
           <ion-col size="7" className="ion-align-self-center">
             <div>
               <ion-label color="dark" position="stacked">Date du retour :</ion-label>
-              <input type="date" value="" name="date2" id="champ_date2" size="12" maxlength="10">
+              <input [(ngModel)]="firebaseDateRetour" type="date" value="" name="date2" id="champ_date2" size="12" maxlength="10">
             </div>
           </ion-col>
           <ion-col size="5" className="ion-align-self-center">
             <div>
               <ion-label color="dark" position="stacked"> Heure du retour </ion-label>
-                <ion-datetime class="encadrer-un-contenu" display-format = "HH:mm" display-timezone="utc" picker-format = "HH:mm" value = "1990-02-19T07: 43Z"> </ion-datetime>
+                <ion-datetime [(ngModel)]="firebaseHeureRetour" class="encadrer-un-contenu" display-format = "HH:mm" display-timezone="utc" picker-format = "HH:mm" value = "13:47"> </ion-datetime>
               </div>
             </ion-col>
         </ion-row>
       </ion-grid>
     </ion-list>
   </ion-card>
-  <ion-Button (click) ="add()" id="bouton-envoyer">Envoyer</ion-Button>
+      <ion-button (click)="addFirestore()" expand="block">Envoyer</ion-button>
 </ion-content>
 
 
-<!--<ion-button (click) ="add()">Ajouter </ion-button>-->

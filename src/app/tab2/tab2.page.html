@@ -1,9 +1,43 @@
-<ion-header [translucent]="true">
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Liste de vos trajet</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
   <!--Contenu de la page-->
-  <h3>Page Vos trajets</h3>
+  <h3>Liste de vos trajets</h3>
+  
+  <div *ngFor = "let item of items | async "> 
+    <ion-card>
+        <u><h6>Depart</h6></u>
+      {{item.depart}}
+<br>
+        <u><h6>Arrivee</h6></u>
+      {{item.arrivee}}    
+<br>
+        <u><h6>Etapes</h6></u>
+      {{item.etapes}}
+<br>
+        <u><h6>Date aller</h6></u>
+      {{item.dateAller}}
+<br>
+        <u><h6>Date retour</h6></u>
+      {{item.dateRetour}}
+<br>      
+        <u><h6>Heure de depart</h6></u>
+      {{item.heureAller}}
+<br>
+        <u><h6>Heure de retour</h6></u>
+      {{item.heureRetour}}
+<br>
+        <u><h6>Aller-Retour</h6></u>
+      {{item.bouton}}
+    </ion-card>
+</div>
 
 </ion-content>
