@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user.mode';
+import {LoadingController, NavController, ToastController} from '@ionic/angular';
+import {AngularFireAuth} from '@angular/fire/auth';
 
 @Component({
   selector: 'app-connexion',
@@ -6,10 +9,57 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./connexion.page.scss'],
 })
 export class ConnexionPage implements OnInit {
-
-  constructor() { }
+  user = {} as User;
+  constructor(
+      private toastCtrl: ToastController,
+      private loadingCtrl: LoadingController,
+      private afAuth: AngularFireAuth,
+      private navCtrl: NavController) { }
 
   ngOnInit() {
+  }
+
+  async login(user: User){
+    if (this.formValidation()){
+      const loader = this.loadingCtrl.create({
+        message: 'Veuillez patienter...'
+      });
+      await (await loader).present();
+
+      try {
+        await this.afAuth.signInWithEmailAndPassword(user.email, user.password).then(data => {
+          console.log(data);
+
+          this.navCtrl.navigateRoot('/tabs/tab1');
+        });
+      }
+      catch (e) {
+        this.showToast(e);
+      }
+      await (await loader).dismiss();
+    }
+  }
+
+  formValidation(){
+    if (!this.user.email){
+      this.showToast('Saisir une adresse mail.');
+      return false;
+    }
+    if (!this.user.password){
+      this.showToast('Saisir un mot de passe.');
+      return false;
+    }
+
+    return true;
+  }
+
+  showToast(message: string){
+    this.toastCtrl
+        .create({
+          message,
+          duration: 3000,
+        })
+        .then(toastData => toastData.present());
   }
 
 }

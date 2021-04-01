@@ -16,6 +16,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import {environment} from 'src/environments/environment';
 import firebase from 'firebase';
 import initializeApp = firebase.initializeApp;
+import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
 
 export const firebaseConfig = {
     apiKey: 'AIzaSyDtutbCJ9i9y6IM8EUtOTPtcqMv7dkvIMU',
@@ -41,7 +42,9 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFirestoreModule
+
   ],
   providers: [
     StatusBar,

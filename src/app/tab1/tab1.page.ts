@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
 //import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
+
 export class Tab1Page {
 firebaseText: string;
 firebaseText1: string;
@@ -48,7 +49,6 @@ firebaseBouton: Boolean;
       //route.navigateByUrl('/tabs/tab2')
       });
     }	
-
 
 }
 

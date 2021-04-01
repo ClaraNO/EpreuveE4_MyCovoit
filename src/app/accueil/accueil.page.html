@@ -4,6 +4,9 @@
 <ion-content [fullscreen]="true">
 
   <!--Contenu de la page-->
-  <h3>Accueil</h3>
-
+  <h3>Accueil !</h3>
+    <ion-item *ngFor="let trajet of trajets | async">
+      <ion-label>{{ trajet.dateAller }}</ion-label>
+      <ion-label>ddd</ion-label>
+    </ion-item>
 </ion-content>
