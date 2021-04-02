@@ -13,7 +13,6 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule} from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import {environment} from 'src/environments/environment';
 import firebase from 'firebase';
 import initializeApp = firebase.initializeApp;
 import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
@@ -35,7 +34,6 @@ export const firebaseConfig = {
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.FIREBASE_CONFIG),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
